@@ -79,7 +79,6 @@ int main() {
         };
         ptr->time *= multipler;
         ptr->time += time;
-        printf("%llu\n", ptr->time);
       }
     else
       for (int i = 0; i < LEN; i++) {
@@ -95,7 +94,6 @@ int main() {
         };
         ptr->distance *= multipler;
         ptr->distance += distance;
-        printf("%llu\n", ptr->distance);
       }
   }
 
