@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 // macro definition
 #define ROW 1000
@@ -184,6 +185,8 @@ int processNumberForEachMap(Number *seeds, int seedsLen, ull map[ROW][COL][3],
 }
 
 int main() {
+  clock_t begin = clock();
+
   int rows = readFile(matrix);
   // printData(matrix, rows);
 
@@ -224,18 +227,22 @@ int main() {
   int mapLen = createMap(map, matrix, rows);
 
   ull mainMin = newSeeds[0].min;
-  printf("%llu %llu %llu\n", newSeeds[0].min, newSeeds[0].max,
-         newSeeds[0].range);
+  // printf("%llu %llu %llu\n", newSeeds[0].min, newSeeds[0].max,
+  //        newSeeds[0].range);
   int len = processNumberForEachMap(newSeeds, newSeedsLen, map, mapLen);
   for (int j = 1; j < len; j++) {
-    printf("%llu %llu %llu\n", newSeeds[j].min, newSeeds[j].max,
-           newSeeds[0].range);
+    // printf("%llu %llu %llu\n", newSeeds[j].min, newSeeds[j].max,
+    //        newSeeds[0].range);
     if (newSeeds[j].min < mainMin) {
       mainMin = newSeeds[j].min;
     }
   }
 
   printf("\nminimo %llu\n", mainMin);
+
+  clock_t end = clock();
+  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("tempo di esecuzione %fs\n", time_spent);
 
   return 0;
 }
