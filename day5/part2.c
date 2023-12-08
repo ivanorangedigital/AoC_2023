@@ -238,11 +238,11 @@ int main() {
     }
   }
 
-  printf("\nminimo %llu\n", mainMin);
+  printf("min %llu\n", mainMin);
 
   clock_t end = clock();
   double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-  printf("tempo di esecuzione %fs\n", time_spent);
+  printf("execution time %fs\n", time_spent);
 
   return 0;
 }
