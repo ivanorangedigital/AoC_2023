@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define LEN 4
 #define ROW 100
@@ -51,6 +52,8 @@ int getNumbersFromRow(int *arr, char *row) {
 }
 
 int main() {
+  clock_t begin = clock();
+
   char matrix[ROW][COL];
   int rows = readFile(matrix);
 
@@ -112,5 +115,8 @@ int main() {
   }
 
   printf("counter %d\n", counter);
+  clock_t end = clock();
+  double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+  printf("execution time %fs\n", time_spent);
   return 0;
 }
