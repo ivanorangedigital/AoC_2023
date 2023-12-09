@@ -22,7 +22,7 @@ typedef struct {
 char matrix[ROW][COL];
 ull map[ROW][COL][3];
 
-// usefule function
+// useful function
 int readFile(char matrix[ROW][COL]) {
   FILE *fptr = fopen(FILE_NAME, "r");
   char(*ptr)[COL] = matrix;
@@ -120,7 +120,6 @@ int processNumberForEachMap(Number *seeds, int seedsLen, ull map[ROW][COL][3],
         if (ptr->max < origin || ptr->min > maxOrigin || ptr->min > maxOrigin ||
             ptr->founded)
           continue;
-        // range uguali funzione
         if (ptr->min >= origin && ptr->max <= maxOrigin) {
           ptr->min = (ptr->min - origin) + destination;
           ptr->max = ptr->min + ptr->range - 1;
@@ -163,7 +162,6 @@ int processNumberForEachMap(Number *seeds, int seedsLen, ull map[ROW][COL][3],
           ptr->max = destination + ptr->range - 1;
           ptr->founded = 1;
         } else if (ptr->min >= origin && ptr->max > maxOrigin) {
-          // caso errato
           Number tmp;
           tmp.min = maxOrigin + 1;
           tmp.max = ptr->max;
